@@ -8,9 +8,9 @@ For more detailed instructions on getting Road Runner setup in your own project,
 
 1. Download or clone this repo with `git clone https://github.com/acmerobotics/road-runner-quickstart`.
 
-1. Open the project in Android Studio and build `TeamCode` like any other `ftc_app` project.
+2. Open the project in Android Studio and build `TeamCode` like any other `ftc_app` project.
 
-1. If you have trouble with multidex, enable proguard by changing `useProguard` to `true` in `build.common.gradle`.
+3. If you have trouble with multidex, enable proguard by changing `useProguard` to `true` in `build.common.gradle`.
 
 ## Documentation
 
