@@ -120,6 +120,14 @@ public class BasicOpMode_Iterative extends OpMode
          leftPower  = -gamepad1.left_stick_y ;
          rightPower = -gamepad1.right_stick_y ;
 
+        double similarityThreshold = 0.2;
+
+        if (areVariablesSimilar(leftPower, rightPower, similarityThreshold)) {
+            double average = (leftPower + rightPower) / 2;
+            leftPower = average;
+            rightPower = average;
+        }
+
         // Send calculated power to wheels
         leftDrive.setPower(leftPower);
         rightDrive.setPower(rightPower);
@@ -127,6 +135,10 @@ public class BasicOpMode_Iterative extends OpMode
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+    }
+
+    public static boolean areVariablesSimilar(double var1, double var2, double threshold) {
+        return Math.abs(var1 - var2) <= threshold;
     }
 
     /*
