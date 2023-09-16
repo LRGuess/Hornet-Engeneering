@@ -2,9 +2,10 @@ package org.firstinspires.ftc.teamcode.RobotCode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="MotorSpin")
-public class TeleOp extends OpMode {
+@TeleOp(name="MotorSpin")
+public class Teleop extends OpMode {
 
     private DcMotor leftDrive;
     private DcMotor rightDrive;
