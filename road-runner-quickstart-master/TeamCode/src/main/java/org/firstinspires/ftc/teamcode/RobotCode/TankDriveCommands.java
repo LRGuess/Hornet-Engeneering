@@ -3,21 +3,21 @@ package org.firstinspires.ftc.teamcode.RobotCode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.util.BaseMovement;
 
-public class TankDriveCommands implements BaseMovement {
+public class TankDriveCommands {
 
-    private DcMotor leftMotor;
-    private DcMotor rightMotor;
+    //private DcMotor leftMotor;
+    //private DcMotor rightMotor;
 
-    public TankDriveCommands(DcMotor leftMotor, DcMotor rightMotor){
-        this.leftMotor = leftMotor;
-        this.rightMotor = rightMotor;
-    }
+//    public TankDriveCommands(DcMotor leftMotor, DcMotor rightMotor){
+//        this.leftMotor = leftMotor;
+//        this.rightMotor = rightMotor;
+//    }
 
-    @Override
-    public void moveForward(int ticks) {
+    public void moveForward(int ticks, DcMotor leftMotor, DcMotor rightMotor) {
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -34,8 +34,8 @@ public class TankDriveCommands implements BaseMovement {
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
-    @Override
-    public void moveBackward(int ticks){
+
+    public void moveBackward(int ticks, DcMotor leftMotor, DcMotor rightMotor){
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -51,8 +51,7 @@ public class TankDriveCommands implements BaseMovement {
         leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-    @Override
-    public void turnLeft(int ticks){
+    public void turnLeft(int ticks, DcMotor leftMotor, DcMotor rightMotor){
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -63,8 +62,7 @@ public class TankDriveCommands implements BaseMovement {
 
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-    @Override
-    public void turnRight(int ticks){
+    public void turnRight(int ticks, DcMotor leftMotor, DcMotor rightMotor){
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -75,8 +73,7 @@ public class TankDriveCommands implements BaseMovement {
 
         leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-    @Override
-    public void rotateLeft(int ticks){
+    public void rotateLeft(int ticks, DcMotor leftMotor, DcMotor rightMotor){
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -92,8 +89,7 @@ public class TankDriveCommands implements BaseMovement {
         leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-    @Override
-    public void rotateRight(int ticks){
+    public void rotateRight(int ticks, DcMotor leftMotor, DcMotor rightMotor){
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -108,5 +104,12 @@ public class TankDriveCommands implements BaseMovement {
 
         leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+
+    public void grabPixel(Servo grabberServo){
+        grabberServo.setPosition(0);
+    }
+    public void leavePixel(Servo grabberServo){
+        grabberServo.setPosition(0.1);
     }
 }
