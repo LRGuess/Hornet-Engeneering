@@ -42,5 +42,12 @@ public class Teleop extends OpMode {
         } else {
             speed = 0.5;
         }
+
+        if(gamepad1.dpad_up){
+            grabber.setPosition(90);
+        }
+        if(gamepad1.dpad_down){
+            grabber.setPosition(-90);
+        }
     }
 }
