@@ -11,14 +11,14 @@ public class Teleop extends OpMode {
     private DcMotor leftDrive;
     private DcMotor rightDrive;
     private Servo drone;
-    private Servo grabber;
+    private Servo grabberServo;
     private double speed = 0.5;
     @Override
     public void init() {
         leftDrive  = hardwareMap.get(DcMotor.class, "motorL");
         rightDrive = hardwareMap.get(DcMotor.class, "motorR");
         drone = hardwareMap.get(Servo.class, "droneServo");
-        grabber = hardwareMap.get(Servo.class, "grabberServo");
+        grabberServo = hardwareMap.get(Servo.class, "grabberServo");
 
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -34,6 +34,19 @@ public class Teleop extends OpMode {
             drone.setPosition(0.0);
         }
 
+        CheckSpeed();
+        GrabberMovement();
+    }
+    private void GrabberMovement() {
+        if (gamepad1.y){
+            grabberServo.setPosition(0);
+        }
+        if (gamepad1.a){
+            grabberServo.setPosition(0.1);
+        }
+    }
+
+    private void CheckSpeed() {
         if(gamepad1.left_trigger == 1){
             speed = 0.25;
         }
