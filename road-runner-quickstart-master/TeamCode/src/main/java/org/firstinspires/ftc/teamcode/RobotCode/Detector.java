@@ -212,7 +212,7 @@ public class Detector implements ImageReader.OnImageAvailableListener, Camera.Pr
     }
 
     protected int getLayoutId() {
-        return R.layout.fr
+        return R.layout.file_info;
     }
 
     protected Size getDesiredPreviewFrameSize() {
