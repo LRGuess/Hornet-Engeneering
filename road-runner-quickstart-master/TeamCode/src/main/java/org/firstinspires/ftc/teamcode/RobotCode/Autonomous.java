@@ -20,6 +20,6 @@ public class Autonomous extends LinearOpMode {
 
         
 
-        drive.followTrajectorySequence();
+//        drive.followTrajectorySequence();
     }
 }
