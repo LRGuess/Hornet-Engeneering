@@ -7,8 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="MotorSpin")
-public class TeleOp extends OpMode {
+public class BasicTeleOp extends OpMode {
 
     private DcMotor leftDrive;
     private DcMotor rightDrive;
