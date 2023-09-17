@@ -29,7 +29,7 @@ public class Teleop extends OpMode {
         leftDrive.setPower(gamepad1.left_stick_y * speed);
         rightDrive.setPower(gamepad1.right_stick_y * speed);
 
-        if(gamepad1.left_trigger == 1 && gamepad1.right_trigger == 1 && gamepad1.a){
+        if(gamepad1.right_trigger == 1 && gamepad1.b){
             drone.setPosition(10.0);
             drone.setPosition(0.0);
         }
