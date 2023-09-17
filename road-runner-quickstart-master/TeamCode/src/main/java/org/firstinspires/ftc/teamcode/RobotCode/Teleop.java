@@ -12,14 +12,11 @@ import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @TeleOp(name="TeleOp")
 public class Teleop extends LinearOpMode {
-
-
     private DcMotor leftDrive;
     private DcMotor rightDrive;
     private Servo drone;
     private Servo grabberServo;
     private double speed = 0.5;
-    //private TouchSensor touchSensor;
     TankDriveCommands c = new TankDriveCommands();
 
 
@@ -29,7 +26,6 @@ public class Teleop extends LinearOpMode {
         rightDrive = hardwareMap.get(DcMotor.class, "motorR");
         drone = hardwareMap.get(Servo.class, "droneServo");
         grabberServo = hardwareMap.get(Servo.class, "grabberServo");
-        //touchSensor = hardwareMap.get(TouchSensor.class, "touchSensor");
 
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -39,18 +35,13 @@ public class Teleop extends LinearOpMode {
             leftDrive.setPower(gamepad1.right_stick_y * speed);
             rightDrive.setPower(gamepad1.left_stick_y * speed);
 
-            if (gamepad1.right_trigger == 1 && gamepad1.b) {
-                drone.setPosition(10.0);
+            if (gamepad1.right_bumper && gamepad1.b) {
+                drone.setPosition(0.2);
                 drone.setPosition(0.0);
             }
 //            if (gamepad1.x) {
 //                c.moveForward(100, leftDrive, rightDrive);
 //            }
-
-//        if(touchSensor.isPressed()){
-//            drone.setPosition(10.0);
-//            drone.setPosition(0.0);
-//        }
 
             CheckSpeed();
             GrabberMovement();
@@ -65,6 +56,18 @@ public class Teleop extends LinearOpMode {
         }
     }
 
+    /**
+     * Changes speed
+     *
+     * Pushing left trigger all the way will make robot move at 1/4th speed (Good for precise movement)
+     *
+     * Pushing right trigger (DO NOT PUSH!
+     *      Only for emergencies.
+     *      Can and will destroy robot, playing field, other robots, and anything in its path
+     * ) all the way will make robot move at full speed
+     *
+     * Anything else will make robot move at 1/2 speed.
+     */
     private void CheckSpeed() {
         if(gamepad1.left_trigger == 1){
             speed = 0.25;
