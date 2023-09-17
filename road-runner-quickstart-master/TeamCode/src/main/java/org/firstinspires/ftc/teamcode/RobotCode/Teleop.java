@@ -56,12 +56,12 @@ public class Teleop extends OpMode {
 
     private void CheckSpeed() {
         if(gamepad1.left_trigger == 1){
-            speed = 0.10;
+            speed = 0.25;
         }
         else if(gamepad1.right_trigger == 1){
-            speed = 0.5;
+            speed = 1;
         } else {
-            speed = 0.25;
+            speed = 0.5;
         }
     }
 }
